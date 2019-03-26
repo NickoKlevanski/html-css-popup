@@ -1,5 +1,11 @@
 @import "../../node_modules/normalize.css/normalize.css";
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 .wrapper {
   display: flex;
   justify-content: flex-end;
@@ -11,11 +17,16 @@
   align-items: center;
   list-style: none;
 
+  &__item {
+    position: relative;
+    padding: 0 10px;
+  }
+
   &__link {
-    margin: 10px;
     color: rgba(0,0,0,0.87);
     font-size: 13px;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
       opacity: .85;
@@ -27,5 +38,102 @@
 .checkbox {
   &__input {
     display: none;
+  }
+
+  &__label {
+    display: flex;
+  }
+}
+
+// checkbox state
+.checkbox__input:checked ~ .apps-container {
+  display: block;
+}
+
+.apps-container {
+  display: none;
+  position: absolute;
+  right: 20px;
+}
+
+.apps-menu {
+  &__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 450px;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    transform: translate(80px, 20px);
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #f0f0f0;
+      border-left: 10px solid transparent;
+      z-index: 1;
+      transform: translate(-67px, -20px);
+    }
+
+    &:after {
+      border-bottom-color: #fff;
+      transform: translate(-67px, -18px);
+    }
+  }
+
+  &__item {
+    width: 88px;
+    height: 100px;
+    text-align: center;
+    list-style: none;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid #e5e5e5;
+    }
+  }
+}
+
+.bell {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background-color: #888;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 12px;
+  }
+}
+
+.avatar {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: burlywood;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 30px;
+    height: 30px;
   }
 }
