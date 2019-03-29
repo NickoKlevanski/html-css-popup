@@ -142,9 +142,13 @@
     list-style: none;
     border: 1px solid transparent;
 
-    &:hover {
-      border: 1px solid #e5e5e5;
-    }
+    // &:hover {
+    //   border: 1px solid #e5e5e5;
+    // }
+
+    // &:focus {
+    //   outline: 2px solid #0000FF;
+    // }
   }
 
   &__link {
@@ -157,6 +161,14 @@
     color: #000000de;
     font-size: 13px;
     text-decoration: none;
+
+    &:hover {
+      border: 1px solid #e5e5e5;
+    }
+
+    &:focus {
+      outline: 2px solid #4D90FE;
+    }
   }
 
   &__img {
