@@ -58,8 +58,6 @@
 // checkbox state
 .checkbox__input:checked ~ .apps-container {
   display: block;
-  max-height: 500px;
-  overflow: auto;
 }
 
 .checkbox__input:checked ~ .checkbox__label--more {
@@ -67,7 +65,7 @@
 }
 
 .checkbox__input:checked ~ .apps-menu__list--more-list {
-  display: block;
+  display: flex;
 }
 
 .apps-container {
@@ -75,11 +73,35 @@
   position: absolute;
   right: 20px;
   transform: translate(80px, 20px);
-  border: 1px solid #f0f0f0;
   max-height: 480px;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f0f0f0;
+    border-left: 10px solid transparent;
+    z-index: 1;
+    transform: translate(-67px, -20px);
+  }
+
+  &:after {
+    border-bottom-color: #fff;
+    transform: translate(-67px, -18px);
+  }
 }
 
 .apps-menu {
+  max-height: 500px;
+  overflow: auto;
+  border: 1px solid #f0f0f0;
+
   &__list {
     position: relative;
     display: flex;
@@ -89,30 +111,10 @@
     padding: 25px;
     background-color: #fff;
 
-    &:before,
-    &:after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      content: "";
-      width: 0;
-      height: 0;
-      border-top: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid #f0f0f0;
-      border-left: 10px solid transparent;
-      z-index: 1;
-      transform: translate(-67px, -20px);
-    }
-
-    &:after {
-      border-bottom-color: #fff;
-      transform: translate(-67px, -18px);
-    }
-
     &--more-list {
       display: none;
       height: auto;
+      margin-top: 20px;
 
       &:before,
       &:after {
@@ -120,6 +122,8 @@
       }
 
       &:before {
+        position: absolute;
+        top: 0;
         content: "";
         left: 50%;
         width: 85%;
