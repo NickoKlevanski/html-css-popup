@@ -5,4 +5,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"../../node_modules/normalize.css/normalize.css":"DOAq"}],"A2T1":[function(require,module,exports) {
 "use strict";require("./style/main.scss");
 },{"./style/main.scss":"IrIc"}]},{},["A2T1"], null)
-//# sourceMappingURL=app.75ea1ccc.js.map
+//# sourceMappingURL=app.b690a926.js.map
